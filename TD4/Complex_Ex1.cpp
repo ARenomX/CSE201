@@ -8,16 +8,22 @@ private:
 
   public:
     // construct the complex number zero
-    void Complex(){
-      std::cout << 0 << std::endl;
+    Complex(){
+      real = 0;
+      imaginary = 0;
     }
 
     // construct a complex number with given real and imaginary parts
-    void Complex(double real, double imaginary){
-      std::cout<<
+    Complex(double r, double i){
+      real = r;
+      imaginary = i;
     }
+    ~Complex(){std::cout << "Destroying " << real << " + " << imaginary << " * i." << std::endl;}
 };
 
-int main{
-    return 0;
+int main(){
+  Complex a;
+  Complex b(3,0);
+  Complex c(1,2);
+  return 0;
 }
