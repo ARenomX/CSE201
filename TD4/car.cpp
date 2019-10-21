@@ -28,9 +28,11 @@ class Car{
         wheels = e;
         steering = f;
     }
-    ~Car(){
+
+    void print(){
         cout << "This car is a " << brand << ' ' << name << " that is composed by:" << endl;
         cout << "An engine of type: " << engine << endl;
+        int i;
         for (i=0;i<4;i=i+1){
             cout << "A seat of type " << seats << endl;
         }
