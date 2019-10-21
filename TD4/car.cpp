@@ -12,7 +12,14 @@ class Car{
         string steering;
 
     public:
-    
+    Car(){
+        brand = "Generic";
+        name = "Model";
+        engine = "Generic";
+        seats = "Generic";
+        wheels = "Generic";
+        steering = "Generic";
+    }
     Car(string a, string b, string c, string d, string e, string f){
         brand = a;
         name = b;
@@ -22,9 +29,17 @@ class Car{
         steering = f;
     }
     ~Car(){
-        
+        cout << "This car is a " << brand << ' ' << name << " that is composed by:" << endl;
+        cout << "An engine of type: " << engine << endl;
+        for (i=0;i<4;i=i+1){
+            cout << "A seat of type " << seats << endl;
+        }
+        for (i=0;i<4;i++){
+            cout << "A wheel of type " << wheels << endl;
+        }
+        cout << "A steering wheel of type: " << steering << endl;
     }
-}
+};
 
 int main() {
 
