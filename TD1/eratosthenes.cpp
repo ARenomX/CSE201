@@ -6,7 +6,8 @@ int eratosthenes (int N){
     int numbers[N-1];
     for (int i=1;i<N;i++){
         numbers[i-1]=i+1;
-    }:cout<<"step 1"<<std::endl;
+    }
+    std::cout<<"step 1"<<std::endl;
 
     int a = 2;
     while(a<N){
