@@ -34,11 +34,23 @@ LinkedList::~LinkedList(){
 
 // display the list on std::cout
 void LinkedList::display(){
-    int i;
+    /*int i;
     for (i=0;(first+i)<=last;i++){
         cout << (*(first+i)).data << ' '; 
     }
     cout<<endl;
+    */
+    
+    ListNode *cur = first;
+    if (cur == NULL) {
+        std::cout << "--" ;
+        return;
+    }
+    while (cur->next != NULL) {
+        std::cout << cur->data << " ";
+        cur = cur->next;
+    }
+    std::cout << cur->data << std::endl;
 }
 
 // add an element to the end of the list. Should be O(1).
@@ -63,26 +75,27 @@ void LinkedList::prepend(int d){
 LinkedList* LinkedList::filterSmaller(int threshold){
     LinkedList* ret = new LinkedList;
     int i;
-    for (i=0;(first+i)<=last;i++){
-        if ((first+i)->data < threshold){
-            (*ret).append((first+i)->data);
+    ListNode* cur = first;
+    while (cur != NULL){
+        if (cur->data <= 5){
+            ret->append(cur->data);
         }
+        cur = cur->next;
     }
     return ret;
     
 }
 
 int main(){
-    srand((unsigned)(time(NULL)));
+    srand(time(NULL));
     LinkedList* a = new LinkedList;
     int i;
-    for (i=0;i<10;i++){
+    for (i=0;i<100;i++){
         int d = rand()%11;
-        cout<< d << ' ';
         (*a).append(d);
     }
-    a->display();
-    cout<<endl;
+    //a->display();
+    //cout<<endl;
     LinkedList* b = a->filterSmaller(5);
     b->display();
 }
