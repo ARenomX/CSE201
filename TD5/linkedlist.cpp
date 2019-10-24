@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 class ListNode {
   public:
     int data;
@@ -5,10 +9,15 @@ class ListNode {
 
     // create a single node with data d
     // and optional next node
-    ListNode(int d, ListNode* nxt = NULL);
+    ListNode(int d, ListNode* nxt = NULL){
+        data = d;
+        next = nxt;
+    }
 
     // delete this node and all successor nodes
-    ~ListNode();
+    ~ListNode(){
+        if (next != NULL) delete next;
+    }
 };
 
 class LinkedList {
@@ -17,13 +26,26 @@ class LinkedList {
 
   public:
     // create an empty list
-    LinkedList();
+    LinkedList(){
+        first = NULL;
+        last = NULL;
+    }
 
     // destroy the list pointed to by first (if any)
-    ~LinkedList();
+    ~LinkedList(){
+        if (first!=NULL){
+            delete first;
+        }
+    }
 
     // display the list on std::cout
-    void display();
+    void display(){
+        int i;
+        for (i=0;(first+i)<=last;i++){
+            cout << (*first).data << ' '; 
+        }
+        cout<<endl;
+    }
 
     // add an element to the end of the list. Should be O(1).
     void append(int d);
