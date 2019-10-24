@@ -2,6 +2,12 @@
 
 #include "LinkedList.hpp"
 
+#include <cstdlib>
+
+#include <ctime>
+
+using namespace std;
+
 ListNode::ListNode(int d, ListNode* nxt)
 {
   data = d;
@@ -63,4 +69,19 @@ LinkedList* LinkedList::filterSmaller(int threshold)
     if (cur->data <= threshold)
       ret->append(cur->data);
   return ret;
+}
+
+int main(){
+    srand((unsigned)(time(NULL)));
+    LinkedList* a = new LinkedList;
+    int i;
+    for (i=0;i<10;i++){
+        int d = rand()%11;
+        cout<< d << ' ';
+        (*a).append(d);
+    }
+    a->display();
+    cout<<endl;
+    LinkedList* b = a->filterSmaller(5);
+    b->display();
 }
